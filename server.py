@@ -1,17 +1,6 @@
-from flask import Flask
-app = Flask(__name__)
+# pulls in the api and service, binds them together and calls run on the service...
 
-@app.route('/api/v2/mydata')
-def index():
-    return "Hello World!"
+import Service
 
-@app.route("/user/<username>")
-def show_user_profile(username):
-    return 'Username: %s' % username
-
-@app.route("/clients/")
-def clients():
-    return 'The Clients Summary Page'
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+# need to make an instance of the Service and then run method...
+# run
