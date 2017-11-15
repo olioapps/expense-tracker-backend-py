@@ -5,6 +5,9 @@ app = Flask(__name__)
 
 class Service:
 
+    def __init__(self):
+        print("constructed")
+
     @app.route('/')
     def index():
         return "Hello World!"
@@ -13,16 +16,20 @@ class Service:
     def hello():
         return "Yo World!"
 
+    @app.route("/clients/")
+    def clients(self):
+        return 'The Clients Summary Page'
+
+    # user endpoints
     @app.route("/user/<username>")
     def show_user_profile(username):
         return 'Username: %s' % username
 
-    @app.route("/clients/")
-    def clients(slef):
-        return 'The Clients Summary Page'
+    @app.route("/getUser/")
+    def get_user():
+        '''return username of all users '''
+
+
 
     def run(self):
         app.run(host="0.0.0.0")
-
-# if __name__ == "__main__":
-#     app.run(host="0.0.0.0")

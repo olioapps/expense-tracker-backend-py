@@ -1,6 +1,18 @@
-# pulls in the api and service, binds them together and calls run on the service...
+#!/usr/bin/python
 
-import Service
+from service import *
 
-# need to make an instance of the Service and then run method...
-# run
+class Server:
+
+
+    ''' Pulls in the api and service, binds them together and calls run on the service... '''
+
+    def main():
+        myService = Service()
+
+        print("Open a browser to http://localhost:5000/")
+
+        myService.run()
+
+    if __name__ == '__main__':
+        main()
